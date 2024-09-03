@@ -28,9 +28,9 @@ Our DaVinci Resolve plugin offers numerous benefits to streamline your workflow 
 
 1. Download the plugin using the button below.
 2. Close DaVinci Resolve if it's currently running.
-3. Unzip the downloaded archive.
-4. Run the Install Script as an Administrator.
-5. Restart DaVinci Resolve.
+3. Run the Install Script as an Administrator.
+4. Restart DaVinci Resolve.
+5. Done! Happy Editing 😃!
 
 ## Download
 
