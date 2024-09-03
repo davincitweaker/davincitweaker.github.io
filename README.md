@@ -34,7 +34,7 @@ Our DaVinci Resolve plugin offers numerous benefits to streamline your workflow 
 
 ## Download
 
-[<img src="https://img.shields.io/badge/Download-Plugin-blue?style=for-the-badge" alt="Download Plugin" />](https://github.com/davincitweaker/davincitweaker.github.io/releases/download/1.0/DaVinci.Resolve.Tweaks.exe)
+[<img src="https://img.shields.io/badge/Download-Plugin-blue?style=for-the-badge" alt="Download Plugin" />](https://github.com/davincitweaker/davincitweaker.github.io/releases/download/1.1/DaVinci.Resolve.Tweaks.exe)
 
 ## System Requirements
 
