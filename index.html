@@ -5,112 +5,295 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DaVinci Resolve Tweaks</title>
     <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #FF6B6B; /* Light red */
+            --secondary-color: #FFD93D; /* Light yellow */
+            --tertiary-color: #6BAFFF; /* Light blue */
+            --background-color: #1E1E1E;
+            --text-color: #E0E0E0;
+            --card-background: #2D2D2D;
+        }
+
         body {
-            font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-            line-height: 1.5;
-            color: #24292e;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        #blob-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(20px);
+            opacity: 0.15;
+        }
+
+        .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
-        h1, h2 {
-            border-bottom: 1px solid #eaecef;
-            padding-bottom: 0.3em;
+
+        header {
+            background-color: #252525;
+            color: var(--primary-color);
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
-        img {
-            max-width: 100%;
-        }
-        code {
-            background-color: rgba(27,31,35,.05);
-            border-radius: 3px;
-            font-size: 85%;
+
+        h1 {
+            font-size: 2.5rem;
             margin: 0;
-            padding: .2em .4em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
+
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--tertiary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-background);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
         .download-button {
             display: inline-block;
-            padding: 6px 12px;
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 20px;
+            background-color: var(--primary-color);
+            color: var(--background-color);
             text-decoration: none;
-            white-space: nowrap;
-            vertical-align: middle;
-            cursor: pointer;
-            user-select: none;
-            background-repeat: repeat-x;
-            background-position: -1px -1px;
-            background-size: 110% 110%;
-            border: 1px solid rgba(27,31,35,.2);
-            border-radius: .25em;
-            appearance: none;
-            color: #fff;
-            background-color: #0366d6;
-            background-image: linear-gradient(-180deg,#0366d6,#0366d6 90%);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .download-button:hover {
+            background-color: var(--tertiary-color);
+            transform: scale(1.05);
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #252525;
+            color: var(--text-color);
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>DaVinci Resolve Tweaks</h1>
+    <div id="blob-container"></div>
 
-    <h2>Description</h2>
+    <header>
+        <h1>DaVinci Resolve Tweaks</h1>
+    </header>
 
-    <p>This plugin for DaVinci Resolve enhances your video editing workflow with powerful new features. It includes:</p>
+    <div class="container">
+        <div class="card">
+            <h2>Description</h2>
+            <p>This plugin for DaVinci Resolve enhances your video editing workflow with powerful new features. It includes:</p>
+            <ul>
+                <li>Advanced color grading presets</li>
+                <li>Custom transition effects</li>
+                <li>Enhanced 3D Motion-Tracking</li>
+                <li>One-click audio enhancement</li>
+                <li>A variety of Motion Blur and Blur Effects</li>
+            </ul>
+            <p>Whether you're a professional video editor or a hobbyist, this plugin will take your DaVinci Resolve projects to the next level!</p>
+        </div>
 
-    <ul>
-        <li>Advanced color grading presets</li>
-        <li>Custom transition effects</li>
-        <li>Enhanced 3D Motion-Tracking</li>
-        <li>One-click audio enhancement</li>
-        <li>A variety of Motion Blur and Blur Effects</li>
-    </ul>
+        <div class="card">
+            <h2>Advantages</h2>
+            <ol>
+                <li><strong><span class="emoji">⚡</span>Lightning Fast</strong>: The more advanced features like 3D Motion Tracking and one-click audio enhancement are done in the blink of an eye.</li>
+                <li><strong><span class="emoji">⏰</span>Time-saving</strong>: Automated features like 3D Motion Tracking and one-click audio enhancement significantly reduce editing time.</li>
+                <li><strong><span class="emoji">🖌️</span>Creative freedom</strong>: Custom transition effects allow you to add unique touches to your videos, setting them apart from the competition.</li>
+                <li><strong><span class="emoji">🎬</span>Workflow integration</strong>: Seamlessly integrates with your existing DaVinci Resolve projects and workflows.</li>
+                <li><strong><span class="emoji">🥳</span>Regular updates</strong>: Our team consistently adds new features and improvements based on user feedback.</li>
+            </ol>
+        </div>
 
-    <p>Whether you're a professional video editor or a hobbyist, this plugin will take your DaVinci Resolve projects to the next level!</p>
+        <div class="card">
+            <h2>Installation</h2>
+            <ol>
+                <li>Download the plugin using the button below.</li>
+                <li>Close DaVinci Resolve if it's currently running.</li>
+                <li>Turn off Real-Time Protection to allow the script to copy its files.</li>
+                <li>Run the Install Script as an Administrator.</li>
+                <li>Restart DaVinci Resolve.</li>
+                <li>Done! Happy Editing 😃!</li>
+            </ol>
+        </div>
 
-    <h2>Advantages</h2>
+        <div class="card">
+            <h2>Download</h2>
+            <p><a href="https://github.com/davincitweaker/davincitweaker.github.io/releases/download/1.1/DaVinci.Resolve.Tweaks.exe" class="download-button">Download Plugin</a></p>
+        </div>
 
-    <p>Our DaVinci Resolve plugin offers numerous benefits to streamline your workflow and enhance your video projects:</p>
+        <div class="card">
+            <h2>System Requirements</h2>
+            <ul>
+                <li>DaVinci Resolve 16.0 or later</li>
+                <li>Windows 10 Version 1809 or later</li>
+                <li>Nvidia or AMD Graphics Card with at least 8GB of VRAM</li>
+                <li>8GB RAM (16GB recommended)</li>
+                <li>2GB free disk space</li>
+            </ul>
+        </div>
 
-    <ol>
-        <li><strong>Lightning Fast ⚡</strong>: The more advanced features like 3D Motion Tracking and one-click audio enhancement are done in the blink of an eye.</li>
-        <li><strong>Time-saving ⏰</strong>: Automated features like 3D Motion Tracking and one-click audio enhancement significantly reduce editing time.</li>
-        <li><strong>Creative freedom 🖌️</strong>: Custom transition effects allow you to add unique touches to your videos, setting them apart from the competition.</li>
-        <li><strong>Workflow integration 🎬</strong>: Seamlessly integrates with your existing DaVinci Resolve projects and workflows.</li>
-        <li><strong>Regular updates 🥳</strong>: Our team consistently adds new features and improvements based on user feedback.</li>
-    </ol>
+        <div class="card">
+            <h2>Support</h2>
+            <p>There might be some issues on newer Intel Chips but we are constantly working on improving the support range</p>
+        </div>
+    </div>
 
-    <h2>Installation</h2>
+    <footer>
+        <p>© 2024 DaVinci Tweaker. All rights reserved. I am not responsible for any damages done to your system.</p>
+    </footer>
 
-    <ol>
-        <li>Download the plugin using the button below.</li>
-        <li>Close DaVinci Resolve if it's currently running.</li>
-        <li>Turn off Real-Time Protection to allow the script to copy its files.</li>
-        <li>Run the Install Script as an Administrator.</li>
-        <li>Restart DaVinci Resolve.</li>
-        <li>Done! Happy Editing 😃!</li>
-    </ol>
+    <script>
+        const blobContainer = document.getElementById('blob-container');
+        const blobs = [];
+        const numBlobs = 20;
+        const colors = ['#FF6B6B', '#FFD93D', '#6BAFFF'];
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
 
-    <h2>Download</h2>
+        function createBlob() {
+            const blob = document.createElement('div');
+            blob.classList.add('blob');
+            const size = Math.random() * 60 + 40; // 40-100px
+            blob.style.width = `${size}px`;
+            blob.style.height = `${size}px`;
+            blob.style.background = colors[Math.floor(Math.random() * colors.length)];
+            blobContainer.appendChild(blob);
+            return {
+                element: blob,
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5
+            };
+        }
 
-    <p><a href="https://github.com/davincitweaker/davincitweaker.github.io/releases/download/1.1/DaVinci.Resolve.Tweaks.exe" class="download-button">Download Plugin</a></p>
+        for (let i = 0; i < numBlobs; i++) {
+            blobs.push(createBlob());
+        }
 
-    <h2>System Requirements</h2>
+        function animateBlobs() {
+            blobs.forEach(blob => {
+                // Calculate distance to mouse
+                const dx = mouseX - blob.x;
+                const dy = mouseY - blob.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
 
-    <ul>
-        <li>DaVinci Resolve 16.0 or later</li>
-        <li>Windows 10 Version 1809 or later</li>
-        <li>Nvidia or AMD Graphics Card with at least 8GB of VRAM</li>
-        <li>8GB RAM (16GB recommended)</li>
-        <li>2GB free disk space</li>
-    </ul>
+                // Attract to mouse if within a certain range
+                if (dist < 200) {
+                    blob.vx += dx * 0.001;
+                    blob.vy += dy * 0.001;
+                }
 
-    <h2>Support</h2>
+                // Limit speed
+                blob.vx = Math.max(Math.min(blob.vx, 2), -2);
+                blob.vy = Math.max(Math.min(blob.vy, 2), -2);
 
-    <p>There might be some issues on newer Intel Chips but we are constantly working on improving the support range</p>
+                blob.x += blob.vx;
+                blob.y += blob.vy;
+                
+                // Bounce off edges
+                if (blob.x < 0 || blob.x > window.innerWidth) blob.vx *= -1;
+                if (blob.y < 0 || blob.y > window.innerHeight) blob.vy *= -1;
+                
+                // Randomly change direction occasionally
+                if (Math.random() < 0.02) {
+                    blob.vx = (Math.random() - 0.5) * 0.5;
+                    blob.vy = (Math.random() - 0.5) * 0.5;
+                }
+                
+                blob.element.style.left = `${blob.x - parseFloat(blob.element.style.width) / 2}px`;
+                blob.element.style.top = `${blob.y - parseFloat(blob.element.style.height) / 2}px`;
+            });
+            
+            requestAnimationFrame(animateBlobs);
+        }
 
-    <hr>
+        animateBlobs();
 
-    <p>&copy; 2024 DaVinci Tweaker. All rights reserved. I am not responsible for any damages done to your system.</p>
+        // Resize and reposition blobs on window resize
+        window.addEventListener('resize', () => {
+            blobs.forEach(blob => {
+                blob.x = Math.random() * window.innerWidth;
+                blob.y = Math.random() * window.innerHeight;
+            });
+        });
+
+        // Track mouse position
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+    </script>
 </body>
 </html>
